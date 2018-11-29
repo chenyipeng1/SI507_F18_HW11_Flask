@@ -1,0 +1,19 @@
+{% if time[0] <= 11 or (time[0] == 12 and time[1] == 0 )%}
+	<h1>Good morning, {{name}}!</h1>
+{% elif time[0] >= 12 and (time[0] <= 15 or (time[0] == 16 and time[1] == 0 ))%}
+	<h1>Good afternoon, {{name}}!</h1>
+{% elif time[0] >= 16 and (time[0] <= 19 or (time[0] == 20 and time[1] == 0 ))%}
+	<h1>Good evening, {{name}}!</h1>
+{% else %}
+	<h1>Good night, {{name}}!</h1>
+{% endif %}
+
+{% if not section_name %}
+	<h2>Today's top headers in technology are...</h2>
+{% else %}
+	<h2>Today's top headers in {{section_name}} are...</h2>
+{% endif%}
+
+{% for i in range(5)%} 
+	<h5 style="text-indent: 3em">{{i+1}}. {{list[i][0]}} ({{list[i][1]}})</h5>
+	{% endfor %}
